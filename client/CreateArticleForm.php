@@ -10,13 +10,13 @@
 </head>
 
 <body>
-  <h1 class="text-center text-3xl font-black">Create article</h1>
-  <form class="flex flex-col w-3/4  sm:w-4/5 lg:w-2/5  m-auto mt-5 " action=" ./create/CreateArticle.php" method="POST" enctype="multipart/form-data">
+  <h1 class="text-center text-3xl font-black mt-5">Create article</h1>
+  <form class="flex flex-col w-3/4  sm:w-4/5 lg:w-2/5  m-auto mt-10 " action=" ./create/CreateArticle.php" method="POST" enctype="multipart/form-data">
     <label class="border-solid border-2 border-black mb-4 p-3 rounded-lg" for="image">
-      <input class="border-solid cursor-pointer w-full" type="file" type="png/jpeg" name="image">
+      <input class="border-solid cursor-pointer w-full" type="file" accept="image/png, image/jpeg" name="image">
     </label>
     <label class="border-solid border-2 border-black mb-4 p-3 rounded-lg" for="title">
-      <input class="border-solid w-full outline-none" type="text" name="title">
+      <input class="border-solid w-full outline-none" type="text" name="title" required>
     </label>
     <label class="border-solid border-2 border-black mb-4 p-3 rounded-lg" for="description">
       <input class="border-solid w-full outline-none" type="text" name="description">

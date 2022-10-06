@@ -7,7 +7,7 @@ class ArticleController
   static function list()
   {
     $db = new Conection();
-    $sql = "SELECT * FROM blog_vanilla.article;";
+    $sql = "SELECT * FROM `blog_vanilla`.article;";
     $table = $db->query($sql);
     $articles = [];
     foreach ($table as $row) {
@@ -37,7 +37,7 @@ class ArticleController
   static function getById($id)
   {
     $db = new Conection();
-    $sql = "SELECT * FROM blog_vanilla.article
+    $sql = "SELECT * FROM `blog_vanilla`.article
                      WHERE idArticle=$id";
     $table = $db->query($sql);
     // echo $sql;
