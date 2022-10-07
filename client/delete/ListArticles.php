@@ -1,7 +1,10 @@
 <?php
-require_once __DIR__ . './server/controller/ArticleController.php';
+require_once __DIR__ . './../../server/controller/ArticleController.php';
+
 $articles = ArticleController::list();
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,24 +12,12 @@ $articles = ArticleController::list();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- font awesome -->
-  <script src="https://kit.fontawesome.com/a413ea44fb.js" crossorigin="anonymous"></script>
-  <title>Home | Blog</title>
+  <title>Delete articles</title>
 </head>
 
-<body class="w-screen h-screen overflow-x-hidden scroll-smooth">
-  <header class="flex w-full justify-between px-16 py-8">
-    <h1 class="font-black text-3xl">
-      Blog vanilla
-    </h1>
-    <div>
-      <a href="/client/security/login.php">
-        <i class="fas fa-user-cog text-2xl"></i>
-      </a>
-    </div>
-  </header>
+<body>
+
   <main class="main-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-7/12 m-auto">
 
     <?php foreach ($articles as $article) : ?>
@@ -40,19 +31,12 @@ $articles = ArticleController::list();
         <div class="description p-5">
           <p><?php echo $article->description; ?></p>
         </div>
+        <a href="./../update/UpdateArticle.php?id=<?php echo $article->idArticle; ?>">Update</a>
+        <a href="./DeleteArticle.php?id=<?php echo $article->idArticle; ?>">Delete</a>
       </div>
     <?php endforeach; ?>
 
   </main>
-
-  <script>
-    const body = document.body;
-    body.addEventListener('keydown', (e) => {
-      if (e.key == 'Enter') {
-        location.reload();
-      }
-    })
-  </script>
 </body>
 
 </html>
