@@ -31,7 +31,7 @@ class ArticleController
               '$article->description'
               )";
     $id = $db->insert($sql);
-    // echo $sql;
+    echo $sql;
     return $id;
   }
   static function getById($id)
@@ -60,6 +60,16 @@ class ArticleController
               WHERE `idArticle` = $article->idArticle;";
     // echo $sql;
     $success = $db->update($sql);
+    return $success;
+  }
+
+  static function deleteById($idArticle)
+  {
+    $db = new Conection();
+    $sql = "DELETE FROM `blog_vanilla`.`article`
+            WHERE idArticle=$idArticle;";
+    // echo $sql;
+    $success = $db->delete($sql);
     return $success;
   }
 }

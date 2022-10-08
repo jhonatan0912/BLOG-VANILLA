@@ -14,6 +14,22 @@ $articles = ArticleController::list();
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/a413ea44fb.js" crossorigin="anonymous"></script>
   <title>Home | Blog</title>
+  <style>
+    .vibrate {
+      background-color: gray;
+      animation: vibrate 3s infinite;
+    }
+
+    @keyframes vibrate {
+      from {
+        background-color: gray;
+      }
+
+      to {
+        background-color: rgb(209 213 219);
+      }
+    }
+  </style>
 </head>
 
 <body class="w-screen h-screen overflow-x-hidden scroll-smooth">
@@ -42,8 +58,41 @@ $articles = ArticleController::list();
         </div>
       </div>
     <?php endforeach; ?>
-
   </main>
+  <?php if (count($articles) < 1) : ?>
+    <div class="loader-containe  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-7/12 m-auto">
+      <div class="loader bg-gray-300 h-80 rounded-lg p-5">
+        <div class=" image-loader w-full h-3/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" title-loader w-full  h-1/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" subtitle-loader w-full  h-1/5 rounded-lg vibrate"></div>
+      </div>
+      <div class="loader bg-gray-300 h-80 rounded-lg p-5">
+        <div class=" image-loader w-full h-3/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" title-loader w-full  h-1/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" subtitle-loader w-full  h-1/5 rounded-lg vibrate"></div>
+      </div>
+      <div class="loader bg-gray-300 h-80 rounded-lg p-5">
+        <div class=" image-loader w-full h-3/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" title-loader w-full  h-1/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" subtitle-loader w-full  h-1/5 rounded-lg vibrate"></div>
+      </div>
+      <div class="loader bg-gray-300 h-80 rounded-lg p-5">
+        <div class=" image-loader w-full h-3/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" title-loader w-full  h-1/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" subtitle-loader w-full  h-1/5 rounded-lg vibrate"></div>
+      </div>
+      <div class="loader bg-gray-300 h-80 rounded-lg p-5">
+        <div class=" image-loader w-full h-3/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" title-loader w-full  h-1/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" subtitle-loader w-full  h-1/5 rounded-lg vibrate"></div>
+      </div>
+      <div class="loader bg-gray-300 h-80 rounded-lg p-5">
+        <div class=" image-loader w-full h-3/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" title-loader w-full  h-1/5 mb-1 rounded-lg vibrate"></div>
+        <div class=" subtitle-loader w-full  h-1/5 rounded-lg vibrate"></div>
+      </div>
+    </div>
+  <?php endif; ?>
 
   <script>
     const body = document.body;

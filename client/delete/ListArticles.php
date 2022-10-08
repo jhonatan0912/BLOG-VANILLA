@@ -31,12 +31,15 @@ $articles = ArticleController::list();
         <div class="description p-5">
           <p><?php echo $article->description; ?></p>
         </div>
-        <a href="./../update/UpdateArticle.php?id=<?php echo $article->idArticle; ?>">Update</a>
-        <a href="./DeleteArticle.php?id=<?php echo $article->idArticle; ?>">Delete</a>
+        <a class="bg-blue-400 text-white p-2 rounded-lg hover:scale-105" href="./../update/UpdateArticle.php?idArticle=<?php echo $article->idArticle; ?>">Update</a>
+        <a class="bg-red-400 text-white p-2 rounded-lg  hover:scale-105" href="./DeleteArticle.php?idArticle=<?php echo $article->idArticle; ?>">Delete</a>
       </div>
     <?php endforeach; ?>
 
   </main>
+  <?php if (count($articles) < 1) : ?>
+    <div class="text-7xl text-center text-red-700 w-screen h-screen flex items-center justify-center">No one article found!!</div>
+  <?php endif; ?>
 </body>
 
 </html>

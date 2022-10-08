@@ -1,21 +1,14 @@
 <?php
 require_once __DIR__ . './../../server/controller/ArticleController.php';
 require_once __DIR__ . './../tools/ImageTools.php';
+require_once __DIR__ . './../tools/HttpTools.php';
 
 
-if (!empty($_GET['id'])) {
-  $idArticle = $_GET['id'];
-  $image = $_FILES['image'];
-  $title = $_POST['title'];
-  $description = $_POST['description'];
-
+if (!empty($_GET['idArticle'])) {
+  $idArticle = $_GET['idArticle'];
   $article = ArticleController::getById($idArticle);
-  $article = new Article($idArticle, $image, $title, $description);
-  $path = ImageTools::subirImagen($image, "article", $idArticle);
-  $article->image = $path;
-  ArticleController::updateArticle($article);
 } else {
-  echo "<h1>id is empty</h1>";
+  HttpTools::redirect('./../delete/ListArticles.php');
 }
 ?>
 <!DOCTYPE html>
@@ -37,12 +30,12 @@ if (!empty($_GET['id'])) {
       <input class="border-solid cursor-pointer w-full" type="file" accept="image/png, image/jpeg" name="image">
     </label>
     <label class="border-solid border-2 border-black mb-4 p-3 rounded-lg" for="title">
-      <input class="border-solid w-full outline-none" type="text" name="title" required placeholder="Insert title" value="<?php echo $article->title ?>">
+      <input class="border-solid w-full outline-none" type="text" name="title" required placeholder="Insert title" value="<?php echo $article->title; ?>">
     </label>
     <label class="border-solid border-2 border-black mb-4 p-3 rounded-lg" for="description">
       <input class="border-solid w-full outline-none" type="text" name="description" placeholder="Insert description" value="<?php echo $article->description; ?>">
     </label>
-    <input class="cursor-pointer border-solid border-2 border-red-600 w-48 py-2 rounded-lg font-bold m-auto " type="submit" name="btn-create" value="Update">
+    <input class="cursor-pointer border-solid border-2 border-red-600 w-48 py-2 rounded-lg font-bold m-auto " type="submit" name="btn-update" value="Update">
   </form>
 
 </body>
