@@ -4,6 +4,7 @@ require_once __DIR__ . './../tools/ImageTools.php';
 require_once __DIR__ . './../tools/HttpTools.php';
 
 if (
+  isset($_POST['btn-create']) &&
   isset($_FILES['image']) &&
   isset($_POST['title']) &&
   isset($_POST['description'])
@@ -12,7 +13,7 @@ if (
   $description = $_POST['description'];
   $image = '';
   $article = new Article(0, $image, $title, $description);
-  if (!empty($_FILES['image']) && !empty($_FILES['title']) && !empty($_FILES['description'])) {
+  if (!empty($_FILES['image']) && !empty($_POST['title']) && !empty($_POST['description'])) {
     $id = ArticleController::createArticle($article);
     if ($id != null) {
       if (isset($_FILES['image'])) {

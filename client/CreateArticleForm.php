@@ -21,11 +21,11 @@
     <label class="border-solid border-2 border-black mb-4 p-3 rounded-lg" for="description">
       <input class="border-solid w-full outline-none" type="text" name="description" placeholder="Insert description">
     </label>
-    <input class="cursor-pointer border-solid border-2 border-red-600 w-48 py-2 rounded-lg font-bold m-auto " type="submit" name="btn-create" value="Create"">
+    <input class="cursor-pointer border-solid border-2 border-red-600 w-48 py-2 rounded-lg font-bold m-auto " type="submit" name="btn-create" value="Create">
   </form>
   <div class=" option">
     <a href="./delete/ListArticles.php">List articles</a>
-    </div>
+  </div>
 </body>
 
 </html>
