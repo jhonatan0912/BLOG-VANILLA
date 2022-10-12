@@ -11,8 +11,9 @@ if (
 ) {
   $title = $_POST['title'];
   $description = $_POST['description'];
+  $enabled = true;
   $image = '';
-  $article = new Article(0, $image, $title, $description);
+  $article = new Article(0, $image, $title, $description, $enabled);
   if (!empty($_FILES['image']) && !empty($_POST['title']) && !empty($_POST['description'])) {
     $id = ArticleController::createArticle($article);
     if ($id != null) {

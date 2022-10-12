@@ -23,12 +23,15 @@ class ArticleController
               (
               `image`,
               `title`,
-              `description`)
+              `description`,
+              `enabled`
+              )
               VALUES
               (
               '$article->image',
               '$article->title',
-              '$article->description'
+              '$article->description',
+              '$article->enabled'
               )";
     $id = $db->insert($sql);
     echo $sql;
@@ -37,7 +40,7 @@ class ArticleController
   static function getById($id)
   {
     $db = new Conection();
-    $sql = "SELECT * FROM `blog_vanilla`.article
+    $sql = "SELECT * FROM `blog_vanilla`.`article`
                      WHERE idArticle=$id";
     $table = $db->query($sql);
     // echo $sql;
@@ -53,12 +56,11 @@ class ArticleController
     $db = new Conection();
     $sql = "UPDATE `blog_vanilla`.`article`
               SET
-              `idArticle` = $article->idArticle,
-              `image` = '$article->image',
               `title` = '$article->title',
-              `description` = '$article->description'
+              `description` = '$article->description',
+              `enabled` = '$article->enabled',
               WHERE `idArticle` = $article->idArticle;";
-    // echo $sql;
+    echo $sql;
     $success = $db->update($sql);
     return $success;
   }

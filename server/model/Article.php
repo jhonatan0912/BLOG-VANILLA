@@ -5,13 +5,15 @@ class Article
   public $image;
   public $title;
   public $description;
+  public $enabled;
 
-  function __construct($idArticle, $image, $title, $description)
+  function __construct($idArticle, $image, $title, $description, $enabled)
   {
     $this->idArticle = $idArticle;
     $this->image = $image;
     $this->title = $title;
     $this->description = $description;
+    $this->enabled = $enabled;
   }
 
   static function fromRow($row)
@@ -20,7 +22,8 @@ class Article
       $row['idArticle'],
       $row['image'],
       $row['title'],
-      $row['description']
+      $row['description'],
+      $row['enabled']
     );
     return $article;
   }
