@@ -7,7 +7,7 @@ class Conection
   function __construct()
   {
     $this->con = mysqli_connect(
-      '127.0.0.1',
+      'localhost',
       'root',
       '1234',
       'blog_vanilla',

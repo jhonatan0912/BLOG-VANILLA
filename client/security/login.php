@@ -15,12 +15,12 @@
   <form action="./validateUser.php" method="POST" class="flex flex-col w-80 m-auto py-10 bg-red-500 text-center rounded-2xl">
     <h1 class="text-4xl mb-4 font-bold">Login</h1>
     <label for="user" class="m-3">
-      <input type="text" name="user" class="bg-neutral-700 rounded-lg">
+      <input type="text" name="user" class="bg-neutral-700 rounded" autocomplete="off">
     </label>
     <label for="password" class="m-3">
-      <input type="password" name="userPassword" class="bg-neutral-700 rounded-lg">
+      <input type="password" name="userPassword" class="bg-neutral-700 rounded">
     </label>
-    <input class="my-3 cursor-pointer bg-purple-500 w-28 py-2 rounded-lg m-auto" type="submit" value="Ingresar" name="login">
+    <input class="my-3 cursor-pointer bg-purple-500 w-28 py-2 rounded-lg m-auto hover:scale-105" type="submit" value="Ingresar" name="login">
   </form>
 </body>
 
